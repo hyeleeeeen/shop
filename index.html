@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+    <title>HLsHoP</title>
+    <style>
+        .myBag {
+            background-image: url("https://wwws.dior.com/couture/ecommerce/media/catalog/product/cache/1/cover_image_1/870x580/17f82f742ffe127f42dca9de82fb58b1/n/K/1604925901_M0565ONGE_M900_E01_ZHC.jpg?imwidth=870");
+            width: 600px;
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            margin: 20px auto auto auto;
+        }
+
+        span {
+            font-weight: bold;
+            font-size: 30px;
+            text-align: center;
+        }
+
+        .text {
+            text-align: center;
+            margin-bottom: 100px;
+        }
+
+        .설명 {
+            background-color: lavender;
+            width: 610px;
+            height: 100px;
+            margin: auto auto 250px auto;
+        }
+
+        .box {
+            width: 600px;
+            height: 380px;
+            border-radius: 5px;
+            border: 1px solid black;
+            text-align: center;
+            margin: auto auto 100px auto;
+            padding: 30px 20px 0px 20px;
+        }
+
+        ul {
+            padding-top: 30px;
+            text-align: left;
+        }
+
+        .btn {
+            background-color: black;
+            color: white;
+            width: 100px;
+        }
+        #cost {
+            font-weight: lighter;
+            font-size: 17px;
+        }
+        p {
+            color : cadetblue;
+        }
+
+    </style>
+    <script>
+        function order() {
+            alert("주문이 완료되었습니다.");
+        }
+
+        $(document).ready(function () {
+            q1();
+        });
+
+        function q1() {
+            $.ajax({
+                type: "GET",
+                url: "https://api.manana.kr/exchange/rate.json",
+                data: {},
+                success: function (response) {
+                    let page = response[1]['rate']
+                    $('#cost').text(page);
+
+                }
+            })
+        }
+
+
+    </script>
+</head>
+<body>
+    <div class="myBag"></div>
+    <div class="text">
+        <span>LADY DIOR 미디엄 백</span>
+        <h6>₩7,600,000 /개</h6> <p> 달러-원 환율 : <span id="cost">"555"</span></p>
+        <h6 class="설명">우아함과 아름다움에 대한 디올 하우스의 비전을 완벽하게
+            표현한 Lady Dior 백입니다. 세련되고 고급스러운 분위기를 연출하는 타임리스한 디자인으로,
+            까나쥬 스티칭으로 장식한 블랙 컬러 양가죽의 퀼팅 텍스처가 한눈에 시선을 사로잡습니다.
+            섬세한 페일 골드 피니시 메탈 D.I.O.R. 블록 참이 돋보이는 디자인이며,
+            슬림한 탈착식 가죽 숄더 스트랩이 있는 미디엄 백으로 핸드백이나 크로스백으로 연출하기 좋습니다.
+            <ul>
+                <li>길이 조절 가능한 탈착식 슬림 숄더 스트랩</li>
+                <li>내부 지퍼 포켓</li>
+                <li>라지 패치 포켓</li>
+                <li>다양한 자수 스트랩 매치 가능</li>
+                <li>더스트 백 포함</li>
+                <li>이탈리아 제조</li>
+            </ul>
+        </h6>
+
+    </div>
+    <div class="box">
+        <span>주문하기</span>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">주문자 성함</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">수량</label>
+            </div>
+            <select class="custom-select" id="inputGroupSelect01">
+                <option selected>--수량을 선택하세요--</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">주소</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">전화번호</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <input class="btn" type="button" onclick="order()" value="제출"/>
+    </div>
+
+</body>
+</html>
